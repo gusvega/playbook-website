@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Code block styling */
+code {
+  @apply font-mono text-sm;
+}
+
+pre {
+  @apply bg-neutral-50 border border-neutral-200 rounded-lg p-4 overflow-x-auto;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
+}
