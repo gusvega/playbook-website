@@ -197,11 +197,11 @@ export default function Page() {
         </Container>
       </section>
 
-      {/* Versioning & Promotion */}
+      {/* Versioning and Promotion */}
       <section id="versioning" className="py-16 border-b border-neutral-100 bg-white">
         <Container>
           <div className="mb-10">
-            <h2 className="text-3xl font-bold mb-2 text-neutral-900">Versioning & Promotion</h2>
+            <h2 className="text-3xl font-bold mb-2 text-neutral-900">Versioning and Promotion</h2>
             <p className="text-sm text-neutral-600">Same artifact, different environment config</p>
           </div>
           <Card className="border border-neutral-200 bg-neutral-50">
@@ -216,6 +216,56 @@ Same image. Secrets/config injected per environment.`}
               </pre>
               <p className="text-xs">
                 This ensures traceability, prevents rebuild drift, and keeps secrets isolated from the artifact.
+              </p>
+            </CardContent>
+          </Card>
+        </Container>
+      </section>
+
+      {/* Release Strategy */}
+      <section id="release" className="py-16 border-b border-neutral-100 bg-white">
+        <Container>
+          <div className="mb-10">
+            <h2 className="text-3xl font-bold mb-2 text-neutral-900">Release Strategy</h2>
+            <p className="text-sm text-neutral-600">Keep it simple: main to tag to deploy</p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            <Card className="border border-neutral-200">
+              <CardContent className="pt-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <Badge variant="default" className="bg-neutral-900">1</Badge>
+                  <p className="font-semibold text-neutral-900">Merge to Main</p>
+                </div>
+                <p className="text-xs text-neutral-600">PR validated and approved. All tests pass. Merge to main—main is always production-ready.</p>
+              </CardContent>
+            </Card>
+            <Card className="border border-neutral-200">
+              <CardContent className="pt-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <Badge variant="default" className="bg-neutral-900">2</Badge>
+                  <p className="font-semibold text-neutral-900">Create Semantic Tag</p>
+                </div>
+                <p className="text-xs text-neutral-600">Tag main with version (v1.2.3). GitHub Actions auto-generates release notes by diffing against previous tag.</p>
+              </CardContent>
+            </Card>
+            <Card className="border border-neutral-200">
+              <CardContent className="pt-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <Badge variant="default" className="bg-neutral-900">3</Badge>
+                  <p className="font-semibold text-neutral-900">Deploy from Tag</p>
+                </div>
+                <p className="text-xs text-neutral-600">Trigger deployment via webhook or manual approval. Full traceability: every deploy tied to a commit and version.</p>
+              </CardContent>
+            </Card>
+          </div>
+          <Card className="border border-neutral-200 bg-neutral-50 mt-6">
+            <CardContent className="pt-4 space-y-3 text-sm text-neutral-600">
+              <p className="font-semibold text-neutral-900">No release branch. No staging merge. Just:</p>
+              <pre className="bg-white border border-neutral-200 rounded p-3 overflow-x-auto text-xs font-mono text-neutral-900">
+{`main → semantic tag → GitHub Actions release notes → deploy`}
+              </pre>
+              <p className="text-xs">
+                Clean, traceable, automatic. Main is production. Tag is history. Diff between tags tells the story of what changed.
               </p>
             </CardContent>
           </Card>
@@ -269,7 +319,7 @@ Google Cloud         → Compute, storage, services`}
               
               <div className="grid gap-6 md:grid-cols-2 pt-4 border-t border-neutral-200">
                 <div>
-                  <p className="font-semibold text-neutral-900 mb-2">Build & Deploy</p>
+                  <p className="font-semibold text-neutral-900 mb-2">Build and Deploy</p>
                   <p className="text-xs text-neutral-600">GitHub Actions builds your app once. Docker packages it. Kubernetes runs it. Same image, multiple environments.</p>
                 </div>
                 <div>
